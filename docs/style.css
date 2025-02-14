@@ -1,74 +1,83 @@
 body {
-    background-color: #000;
     margin: 0;
     padding: 0;
+    background-color: #0d0d0d;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
     height: 100vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-family: Arial, sans-serif;
+    align-items: center;
+    text-align: center;
+}
+
+.message {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.flower-container {
+    position: relative;
+    display: flex;
+    gap: 20px;
 }
 
 .flower {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: rotate 10s linear infinite;
-}
-
-.text-above, .text-below {
-    position: absolute;
-    text-align: center;
-    color: #fff;
-    font-size: 20px;
-}
-
-.text-above {
-    top: -40px;
-}
-
-.text-below {
-    bottom: -40px;
-}
-
-.mid {
     width: 50px;
     height: 50px;
-    background: radial-gradient(circle, #ff5e00, #ffbb00);
+    background-color: yellow;
     border-radius: 50%;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0 0 10px #ff5e00;
+    position: relative;
+    animation: bloom 3s infinite alternate;
 }
 
-.petal {
+.flower::before, .flower::after {
+    content: '';
     position: absolute;
-    width: 100px;
+    width: 50px;
     height: 50px;
-    background: radial-gradient(circle, #ff5e00, #ffbb00);
-    border-radius: 50% 50% 0 0;
-    transform-origin: bottom center;
-    animation: pulse 2s infinite;
+    background-color: yellow;
+    border-radius: 50%;
 }
 
-.p1 { transform: rotate(0deg) translateY(-50%); }
-.p2 { transform: rotate(45deg) translateY(-50%); }
-.p3 { transform: rotate(90deg) translateY(-50%); }
-.p4 { transform: rotate(135deg) translateY(-50%); }
-.p5 { transform: rotate(180deg) translateY(-50%); }
-.p6 { transform: rotate(225deg) translateY(-50%); }
-.p7 { transform: rotate(270deg) translateY(-50%); }
-.p8 { transform: rotate(315deg) translateY(-50%); }
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.flower::before {
+    top: -30px;
+    left: 0;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+.flower::after {
+    top: 30px;
+    left: 0;
+}
+
+.flower1 { animation-delay: 0s; }
+.flower2 { animation-delay: 0.5s; }
+.flower3 { animation-delay: 1s; }
+
+@keyframes bloom {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1.2); }
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    animation: drift 10s infinite linear;
+}
+
+@keyframes drift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
 }
