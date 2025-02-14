@@ -2,24 +2,137 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Flor Dinámica</title>
+    <title>Flores Animadas Interactivas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .fondo { 
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(13,17,23,1) 10%, rgba(0,0,0,1) 90%);
+        }
+        .flores {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+        }
+        .flor {
+            width: 50px;
+            height: 80px;
+            position: relative;
+            animation: florMov 4s infinite alternate ease-in-out;
+        }
+        .flor .tallo {
+            width: 6px;
+            height: 60px;
+            background-color: green;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .flor .petalos {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .flor .petalos div {
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .flor .petalos div:nth-child(1) { top: 0; left: -10px; }
+        .flor .petalos div:nth-child(2) { top: 0; left: 10px; }
+        .flor .petalos div:nth-child(3) { top: -10px; left: 0; }
+        .flor .centro {
+            width: 15px;
+            height: 15px;
+            background-color: orange;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 68px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes florMov {
+            0% { transform: translateX(-50%) rotate(-5deg); }
+            100% { transform: translateX(-50%) rotate(5deg); }
+        }
+        .mensaje {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            animation: brillo 2s infinite alternate;
+        }
+        @keyframes brillo {
+            from { color: #ffffff; }
+            to { color: #f8d847; }
+        }
+        .particulas {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(13,17,23,0.6) 0%, rgba(0,0,0,1) 90%);
+            pointer-events: none;
+        }
+        .particulas::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/VxNKtXu.png') repeat;
+            animation: moverEstrellas 10s linear infinite;
+        }
+        @keyframes moverEstrellas {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="flower">
-        <div class="text-above">De Adonis</div>
-        <div class="mid"></div>
-        <div class="petal p1"></div>
-        <div class="petal p2"></div>
-        <div class="petal p3"></div>
-        <div class="petal p4"></div>
-        <div class="petal p5"></div>
-        <div class="petal p6"></div>
-        <div class="petal p7"></div>
-        <div class="petal p8"></div>
-        <div class="text-below">Para Delia</div>
+    <div class="fondo"></div>
+    <div class="particulas"></div>
+    <div class="mensaje">¡Flores para alegrarte el día!</div>
+    <div class="flores">
+        <div class="flor">
+            <div class="tallo"></div>
+            <div class="petalos">
+                <div></div><div></div><div></div>
+            </div>
+            <div class="centro"></div>
+        </div>
+        <div class="flor">
+            <div class="tallo"></div>
+            <div class="petalos">
+                <div></div><div></div><div></div>
+            </div>
+            <div class="centro"></div>
+        </div>
+        <div class="flor">
+            <div class="tallo"></div>
+            <div class="petalos">
+                <div></div><div></div><div></div>
+            </div>
+            <div class="centro"></div>
+        </div>
     </div>
 </body>
 </html>
+
