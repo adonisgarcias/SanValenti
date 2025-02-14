@@ -1,83 +1,66 @@
 body {
+    background-color: #0b0f19;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow: hidden;
-}
-
-.container {
-    position: relative;
-    height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.contenedor {
     text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-.message {
-    font-size: 24px;
-    margin-bottom: 20px;
+h1 {
+    color: #ffdd57;
+    text-shadow: 0 0 8px rgba(255, 221, 87, 0.8);
 }
 
-.flower-container {
-    position: relative;
+p {
+    font-size: 18px;
+}
+
+.flores {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.flower {
-    width: 50px;
-    height: 50px;
+.flor {
+    width: 60px;
+    height: 60px;
     background-color: yellow;
     border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    margin: 0 10px;
     position: relative;
-    animation: bloom 3s infinite alternate;
 }
 
-.flower::before, .flower::after {
+.flor::before, .flor::after {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: yellow;
     border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
 }
 
-.flower::before {
+.flor::before {
     top: -30px;
     left: 0;
 }
 
-.flower::after {
+.flor::after {
     top: 30px;
     left: 0;
-}
-
-.flower1 { animation-delay: 0s; }
-.flower2 { animation-delay: 0.5s; }
-.flower3 { animation-delay: 1s; }
-
-@keyframes bloom {
-    0% { transform: scale(0.5); }
-    100% { transform: scale(1.2); }
-}
-
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
-    background-size: 20px 20px;
-    opacity: 0.3;
-    animation: drift 10s infinite linear;
-}
-
-@keyframes drift {
-    0% { background-position: 0 0; }
-    100% { background-position: 100px 100px; }
 }
